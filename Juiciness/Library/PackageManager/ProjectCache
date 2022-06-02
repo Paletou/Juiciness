@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637894386950402798
-    m_Hash: 162049471
+      ticks: 637894395404834955
+    m_Hash: 969923919
   m_LockFileStatus:
     m_FilePath: C:/Users/Bastien/OneDrive/Documents/GITHUBCODE/Juiciness/Juiciness/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637894386950452809
-    m_Hash: 2961394493
+      ticks: 637894395399469249
+    m_Hash: 3750766088
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
