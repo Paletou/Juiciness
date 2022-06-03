@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7696167157940194102}
   - component: {fileID: 7696167157940194101}
   - component: {fileID: 7696167157940194100}
+  - component: {fileID: 4006446261466894450}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -123,7 +124,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.38, y: 0.34}
+    oldSize: {x: 6, y: 6}
     newSize: {x: 0.38, y: 0.34}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -158,3 +159,22 @@ MonoBehaviour:
   DashCooldown: 0.5
   AirDash: 1
   BulletPrefab: {fileID: 4270954644967444177, guid: 23eeb5ce09384db4f901ee0de10c6a6a, type: 3}
+--- !u!95 &4006446261466894450
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7696167157940194099}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd5a14e4467be964b81afe30aa708104, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
