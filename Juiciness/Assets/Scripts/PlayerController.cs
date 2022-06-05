@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     BoxCollider2D col; // Change It If You Use Something Else That Box Collider, Make Sure You Update The Reference In Start Function
 
+    private Animator m_animator;
 
     ////// START & UPDATE :
 
@@ -46,8 +47,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         rb.gravityScale = Gravity;
-        
-        
+
+        m_animator = GetComponent<Animator>();
+
     }   
     void Update()
     {
@@ -81,6 +83,10 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(Dash());
             }
         }
+        
+        m_animator.SetFloat("Speed X", Mathf.Abs(rb.velocity.x)  );
+        
+        
     }
     void FixedUpdate()
     {
