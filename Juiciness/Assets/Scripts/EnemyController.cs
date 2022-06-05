@@ -16,6 +16,12 @@ public class EnemyController : MonoBehaviour
     Vector2 PreviousPlayerDirection;
     Rigidbody2D rb;
     BoxCollider2D col;
+
+    private Color m_originalColor;
+    private SpriteRenderer m_sprite;
+
+    private Animator m_animator;
+    
     
     private GameManager m_gameManager;
     
@@ -26,6 +32,10 @@ public class EnemyController : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         DriftFactor = 1;
         m_gameManager = FindObjectOfType<GameManager>();
+        m_sprite = GetComponent<SpriteRenderer>();
+        m_animator = GetComponent<Animator>();
+
+        m_originalColor = m_sprite.color;
 
     }
 
@@ -47,9 +57,12 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("1");
             
+            m_animator.SetTrigger("DeathTrigger");
+
             m_gameManager.addScore();
             
             Destroy(gameObject);
+            
         }
 
         if(Speed <= 0)
@@ -62,6 +75,9 @@ public class EnemyController : MonoBehaviour
     public void GetDamage(float dmg)
     {
         Health -= dmg;
+
+        StartCoroutine(ChangeColor());
+
     }
 
     void RotateTowardsPlayer()
@@ -90,4 +106,27 @@ public class EnemyController : MonoBehaviour
         }
         DriftFactor = 1;
     }
+    
+    IEnumerator ChangeColor()
+    {
+            
+        m_sprite.color = Color.red;
+            
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(0.1f);
+
+        m_sprite.color = m_originalColor;
+    }
+    
+    IEnumerator Death()
+    {
+        m_animator.SetTrigger("DeathTrigger");
+        
+            
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(0.1f);
+
+        
+    }
+
 }
