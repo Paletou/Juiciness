@@ -16,12 +16,17 @@ public class EnemyController : MonoBehaviour
     Vector2 PreviousPlayerDirection;
     Rigidbody2D rb;
     BoxCollider2D col;
+    
+    private GameManager m_gameManager;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         Player = GameObject.FindWithTag("Player");
         DriftFactor = 1;
+        m_gameManager = FindObjectOfType<GameManager>();
+
     }
 
     void Update()
@@ -40,6 +45,10 @@ public class EnemyController : MonoBehaviour
         //Die
         if(Health <= 0)
         {
+            Debug.Log("1");
+            
+            m_gameManager.addScore();
+            
             Destroy(gameObject);
         }
 
