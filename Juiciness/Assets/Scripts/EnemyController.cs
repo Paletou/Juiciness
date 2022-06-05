@@ -56,12 +56,12 @@ public class EnemyController : MonoBehaviour
         if(Health <= 0)
         {
             Debug.Log("1");
+
             
-            m_animator.SetTrigger("DeathTrigger");
 
             m_gameManager.addScore();
             
-            Destroy(gameObject);
+            StartCoroutine(Death());
             
         }
 
@@ -120,12 +120,20 @@ public class EnemyController : MonoBehaviour
     
     IEnumerator Death()
     {
+        col.enabled = false;
+        rb.velocity = Vector2.zero;
         m_animator.SetTrigger("DeathTrigger");
+
+        Speed = 0;
+        AccelerationRate = 0;
+        
+        
         
             
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
 
+        Destroy(gameObject);
         
     }
 
